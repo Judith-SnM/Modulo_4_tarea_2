@@ -1,23 +1,30 @@
-import{
+import {
     Impuestos
-}from "./main2.js"
+} from "./main2.js"
 
 class Clientes {
-constructor (nombre, impuesto){
-    this.nombre =nombre
-    this.impuesto=[]
-}
-set SetNombre(nombre){
-    this.nombre.push(nombre)
-}
-get getNombre(){
-    return this.nombre
-}
-calcularimpuesto(impuesto){
-    return this.impuesto.find((Impuestos.montoBrutoAnual - Impuestos.deducciones)*0.21)
-}
+    constructor(nombre) {
+        this.nombre = nombre;
+        this.impuesto = [];
+    }
+    set Setimpuesto(Impuestos) {
+        this.impuesto.push(Impuestos)
+    }
+    get getimpuesto() {
+        return this.impuesto;
+    }
+    calcularimpuesto() {
+        return this.impuesto.map(impuesto => (impuesto.getMontoBrutoAnual - impuesto.getdeducciones) * 0.21)
+    }
 
 }
-const Clientes = new Clientes();
+const clientes = new Clientes();
 
-console.log(calcularimpuesto)
+const calculo1 = new Impuestos(345, 268);
+const calculo2 = new Impuestos(500, 100);
+
+clientes.Setimpuesto = calculo1
+clientes.Setimpuesto = calculo2
+
+console.log(clientes.getimpuesto);
+console.log(clientes.calcularimpuesto())
