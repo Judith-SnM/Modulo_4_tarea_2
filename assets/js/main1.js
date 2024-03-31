@@ -13,8 +13,8 @@ class Clientes {
     get getimpuesto() {
         return this.impuesto;
     }
-    calcularimpuesto() {
-        return this.impuesto.map(impuesto => (impuesto.getMontoBrutoAnual - impuesto.getdeducciones) * 0.21)
+    calcularimpuesto = function() {
+        return this.impuesto.map(Impuestos => (Impuestos.getMontoBrutoAnual - Impuestos.getdeducciones) * 0.21)
     }
 
 }
@@ -27,4 +27,4 @@ clientes.Setimpuesto = calculo1
 clientes.Setimpuesto = calculo2
 
 console.log(clientes.getimpuesto);
-console.log(clientes.calcularimpuesto())
+console.log(clientes.calcularimpuesto(calculo1))
